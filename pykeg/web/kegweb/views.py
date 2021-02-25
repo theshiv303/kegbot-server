@@ -123,6 +123,7 @@ def fullscreen(request):
     active_taps = [t for t in taps if t.current_keg]
     pages = [active_taps[i : i + 4] for i in range(0, len(active_taps), 4)]
     context["pages"] = pages
+    context["temp"] = models.Keg.objects.first().current_tap.Temperature
 
     return render(request, "kegweb/fullscreen.html", context=context)
 
