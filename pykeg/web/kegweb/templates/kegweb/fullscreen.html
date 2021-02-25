@@ -62,6 +62,17 @@ img.taplist-foot-logos {
     <div class="span12">
     	<center>
     		<img src={% static "images/whats-on-tap.png" %}>
+		<br/><br/>
+		{% if temp %}
+          		{% if kbsite.temperature_display_units == "f" %}
+          			<h2>{{ temp.TempF|floatformat:1}} &deg;F</h2>
+          		{% else %}
+          			<h2>{{ temp.TempC|floatformat:1}} &deg;C</h2>
+          		{% endif %}
+          		<small>Temperature</small>
+		{% else %}
+			<h2>NO TEMP SENSOR: ERROR</h2>
+      		{% endif %}
       </center>
     </div>
     </div>
